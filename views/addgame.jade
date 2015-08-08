@@ -1,0 +1,50 @@
+html(lang="en")
+	head
+		title LAN Manager
+
+		script(src="js/jquery-2.1.4.min.js")
+		script(src="js/bootstrap.min.js")
+		script(src="js/serveradd.js")
+
+		link(rel="stylesheet", type="text/css", href="css/bootstrap.min.css")
+		link(rel="stylesheet", type="text/css", href="css/font-awesome.min.css")
+		link(rel="stylesheet", type="text/css", href="css/custom.css")
+		
+
+	body
+		header
+			h1 LAN Manager
+
+		div.content
+
+			h3
+				|Add Server
+			form.addGameForm
+				div.form-group
+					label(for="server_name")|Server Name
+					input(type="text", class="form-control", id="server_name", placeholder="Server Name")
+
+				div.form-group
+					label(for="server_ip")|Server IP
+					input(type="text", class="form-control", id="server_ip", placeholder="Server IP")
+
+				div.form-group
+					label(for="your_name")|Your Name
+					input(type="text", class="form-control", id="your_name", placeholder="Your Name")
+
+				div.form-group
+					label(for="server_desc")|Server Description
+					input(type="text", class="form-control", id="server_desc", placeholder="Server Desription")
+
+				div.form-group
+					label(for="server_game")|Game
+					select.form-control(id="server_game")
+						option|Minecraft
+						option|CS:GO
+						option|CS:SOURCE
+						option|Minesweeper
+
+				div.form-group
+					input(type="submit")
+	
+				h2.errorMessage
