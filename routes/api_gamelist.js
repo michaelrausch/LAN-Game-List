@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
   gameDatabase.lrange('games', 0, -1, function(err, reply) {
     for (var i = reply.length - 1; i >= 0; i--) {
     	if(i == 0){
-			jsonResponse += "" + reply[i] + "";
+			  jsonResponse += "" + reply[i] + "";
     	} 
     	else{
     		jsonResponse += "" + reply[i] + ", ";
