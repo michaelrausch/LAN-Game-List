@@ -11,17 +11,17 @@ $(function() {
     function displayGames(result){
     	console.log(result);
     	var gameListHtml = "";
-    	var gameIcon = "https://sophosnews.files.wordpress.com/2015/01/minecraft-small.jpg";
+    	var gameIcon = "/img/game-icon.png";
 
-    	if(result['games'].length == 0){
+    	if(result.length == 0){
 			displayError("There are no games");
     	}
     	else{
-    		for (var i = result['games'].length - 1; i >= 0; i--) {
-	    		console.log(result['games'][i]);
+    		for (var i = result.length - 1; i >= 0; i--) {
+	    		console.log(result[i]);
 	    		gameListHtml += '<div class="game"><div class="icon"><img src="' + gameIcon + '" height="80px" width="80px"></div>'
-	    					 +  '<div class="description"><h3>' + result['games'][i]['server_name'] + ' | '+ result['games'][i]['server_ip'] + "</h3>"
-	    					 +  '<p>' + result['games'][i]['server_desc'] + '. This server is hosted by ' + result['games'][i]['server_owner'] + '</p>'
+	    					 +  '<div class="description"><h3>' + result[i]['server_name'] + ' | '+ result[i]['server_ip'] + "</h3>"
+	    					 +  '<p>' + result[i]['server_desc'] + '. This server is hosted by ' + result[i]['server_owner'] + '</p>'
 	    					 +  '</div></div>';
     		};
     		$('.current_games').html(gameListHtml);
@@ -34,8 +34,9 @@ $(function() {
     	$.ajax({
     		type: 'GET', 
 			dataType: 'json',
-    		url: "http://127.0.0.1:3000/api/gamelist",
+    		url: "/api/gamelist",
     		success: function(result){
+				console.log(result)
         		displayGames(result);
     		},
     		error: function(){
